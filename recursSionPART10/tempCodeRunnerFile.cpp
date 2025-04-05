@@ -1,0 +1,1 @@
+emove(s,ans+ch,idx+1);

@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+    int r,c;
+    cin>>r>>c;
+    int arr[r][c];
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            cin>>arr[i][j];
+        }
+    }
+    int minr=0;
+    int minc=0;
+    int maxr=r-1;
+    int maxc=c-1;
+    while(minr<=maxr && minc<=maxc){
+        // if(minc>maxc || minr>maxr)break;
+        for(int i=minc;i<=maxc;i++){
+            cout<<arr[minr][i]<<" ";
+        }
+        minr++;
+        if(minc>maxc || minr>maxr)break;
+        for(int i=minr;i<=maxr;i++){
+            cout<<arr[i][maxc]<<" ";
+        }
+        maxc--;
+        if(minc>maxc || minr>maxr)break;
+        for(int i=maxc;i>=minc;i--){
+            cout<<arr[maxr][i]<<" ";
+        }
+        maxr--;
+        if(minc>maxc || minr>maxr)break;
+        for(int i=maxr;i>=minr;i--){
+            cout<<arr[i][minc]<<" ";
+        }
+        minc++;
+    }
+}
